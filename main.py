@@ -63,8 +63,6 @@ class Interface(FloatLayout):
 			return False
 		return True
 
-
-
 class AttendanceApp(App):
 
 	def __init__(self, **kwargs):
@@ -83,8 +81,6 @@ class AttendanceApp(App):
 
 	def build_settings(self,settings):
 		settings.add_json_panel('Attendance', self.config, data=json_settings)
-		settings.font_size = .01, None
-
 
 	def build(self):
 		config = self.config
@@ -99,8 +95,6 @@ class AttendanceApp(App):
 
 		if key == 'worksheet':
 			self.root.worksheet = value
-
-
 
 if __name__ == '__main__':
 	AttendanceApp().run()
