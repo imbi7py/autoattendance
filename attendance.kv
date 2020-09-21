@@ -1,0 +1,50 @@
+<Interface>:
+	ActionBar:
+		pos_hint: {'top':1}
+
+		ActionView:
+			use_separator: True
+
+        	ActionPrevious:
+        		title: 'Attendance'
+	            with_previous: False
+
+			ActionButton:
+				text:'settings'
+				on_press: app.open_settings()
+
+		
+	Button:
+		text:'Check In'
+		size_hint: .4, .06
+		pos_hint: {'x':.3,'y':.5}
+		on_release: root.checkIn()
+
+	Button:
+		text:'Check Out'
+		size_hint: .4, .06
+		pos_hint: {'x':.3,'y':.4}
+		on_release: root.checkOut()
+
+
+<PopupWindow>:
+	title: root.title
+	size_hint: (None,None)
+	size: (400,300)
+	message: message
+	wrapped_button: wrapped_button
+	BoxLayout:
+		orientation: 'vertical'
+		Label:
+			id: message
+			text: ''
+			halign: 'center'
+			text_size: self.width, None
+			center_y: .5
+		Button:
+			id: wrapped_button
+			text: 'Close'
+			size_hint: 1, None
+			height: root.height / 8
+			on_release: root.dismiss()
+		
